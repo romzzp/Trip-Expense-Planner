@@ -1,25 +1,33 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Trip, Destination, Expenses, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const tripData = await Trip.findAll({
+      where: {
+        status: 'F',
+      },
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Destination,
+          attributes: ['city','country'],
+        },
+        {
+          model: Expenses,
+          attributes: ['category','budget','spent'],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const trips = tripData.map((trip) => trip.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    //res.json(trips);
+    //Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      trips, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,21 +35,59 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/tripuser', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    // Get all projects and JOIN with user data
+    const tripData = await Trip.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      include: [
+        {
+          model: Destination,
+          attributes: ['city','country'],
+        },
+        {
+          model: Expenses,
+          attributes: ['category','budget','spent'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const trips = tripData.map((trip) => trip.get({ plain: true }));
+
+    //res.json(trips);
+    //Pass serialized data and session flag into template
+    res.render('mytrips', { 
+      trips, 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/trip/:id', async (req, res) => {
+  try {
+    const tripData = await Trip.findByPk(req.params.id, {
       include: [
         {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Expenses,
+          attributes: ['category','budget','spent'],
+        },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const trip = tripData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    //res.json(trip);
+    res.render('trip', {
+      ...trip,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -55,7 +101,6 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
