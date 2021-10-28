@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         },
         {
           model: Expenses,
-          attributes: ['category','budget','spent'],
+          attributes: ['category','budget','spent','id'],
         },
       ],
     });
@@ -49,7 +49,7 @@ router.get('/tripuser', async (req, res) => {
         },
         {
           model: Expenses,
-          attributes: ['category','budget','spent'],
+          attributes: ['category','budget','spent','id'],
         },
       ],
     });
@@ -73,8 +73,8 @@ router.get('/trip/:id', async (req, res) => {
     const tripData = await Trip.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Destination,
+          attributes: ['city','country'],
         },
         {
           model: Expenses,
@@ -84,7 +84,7 @@ router.get('/trip/:id', async (req, res) => {
     });
 
     const trip = tripData.get({ plain: true });
-
+    console.log(trip);
     //res.json(trip);
     res.render('trip', {
       ...trip,
@@ -108,6 +108,50 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       ...user,
       logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/destination/:citycountry', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    let citycountry = req.params.citycountry;
+    let city = citycountry.split('@')[0];
+    let country = citycountry.split('@')[1];
+    console.log(city);
+    console.log(country);
+
+    const tripData = await Destination.findAll({
+      where: {
+        city: city, country: country
+      },
+    });
+
+    // Serialize data so the template can read it
+    const trips = tripData.map((trip) => trip.get({ plain: true }));
+    console.log(trips);
+    res.json(trips);
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/destinations', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const destData = await Trip.findAll({});
+
+    // Serialize data so the template can read it
+    const destinations = destData.map((destination) => destination.get({ plain: true }));
+
+    //res.json(trips);
+    //Pass serialized data and session flag into template
+    res.render('destinations', { 
+      destinations, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);

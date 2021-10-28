@@ -24,11 +24,11 @@ router.put('/:id',  async (req, res) => {
     try {
       const tripData = await Trip.update({
         description: req.body.description,
-        start_date: req.body.startDate,
+        start_date: req.body.tripDate,
         duration: req.body.duration,
         status: req.body.status,
         user_id: req.session.user_id,
-        destination_id: req.body.destinationId,},
+        destination_id: req.body.destination_id,}, 
         {where: {id : req.params.id}});
       res.status(200).json(tripData);
     } catch (err) {

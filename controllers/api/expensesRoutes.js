@@ -2,14 +2,26 @@ const router = require('express').Router();
 const { Expenses } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/',  async (req, res) => {
   try {
-    const newExpense = await Expenses.create({
-      trip_id: req.body.trip_id,
-      category: req.body.category,
-      budget: req.body.budget,
-      spent: req.body.spent,
-    });
+    console.log("expense create");
+    console.log(req.body.spent);
+    let newExpense 
+    if (req.body.spent){
+      newExpense= await Expenses.create({
+        trip_id: req.body.trip_id,
+        category: req.body.category,
+        budget: req.body.budget,
+        spent: req.body.spent,
+      });
+    } else {
+      newExpense= await Expenses.create({
+        trip_id: req.body.trip_id,
+        category: req.body.category,
+        budget: req.body.budget
+      });
+    }
+
 
     res.status(200).json(newExpense);
   } catch (err) {
