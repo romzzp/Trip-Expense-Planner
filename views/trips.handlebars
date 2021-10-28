@@ -1,0 +1,7 @@
+<section class="container">
+  <section class="flex-row justify-center">    
+    {{#each userTrips as |trip|}}
+    {{> userTrips}}
+    {{/each}}
+  </section>
+  <div id='userId'data-id={{userId}}></div>
