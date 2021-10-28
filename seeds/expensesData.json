@@ -1,0 +1,39 @@
+[
+    {
+        "trip_id": 1,
+        "category": "",
+        "budget": 400,
+        "spend": 450
+    },
+    {
+        "trip_id": 2,
+        "category": "",
+        "budget": 500,
+        "spend": 700
+    },
+    {
+        "trip_id": 3,
+        "category": "",
+        "budget": 500,
+        "spend": 500
+    },
+    {
+        "trip_id": 4,
+        "category": "",
+        "budget": 350,
+        "spend": 400
+    },
+    {
+        "trip_id": 5,
+        "category": "",
+        "budget": 600,
+        "spend": 550
+    },
+    {
+        "trip_id": 6,
+        "category": "",
+        "budget": 500,
+        "spend": 400
+    }
+  ]
+  
