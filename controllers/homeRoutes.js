@@ -35,13 +35,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/tripuser', async (req, res) => {
+router.get('/mytrips', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const tripData = await Trip.findAll({
-      where: {
-        user_id: req.session.user_id,
-      },
+      // where: {
+      //   user_id: req.session.user_id,
+      // },
       include: [
         {
           model: Destination,
@@ -56,7 +56,30 @@ router.get('/tripuser', async (req, res) => {
 
     // Serialize data so the template can read it
     const trips = tripData.map((trip) => trip.get({ plain: true }));
+    console.log(trips);
+    let totalBudget = 0;
+    let totalSpent = 0;
+    let completed = true;
+    trips.forEach(trip => {
+      console.log(trip);
+      trip.expenses.forEach(expense => {
+        totalBudget +=  expense.budget;
+        if (expense.spent===null){
+          console.log("Expense null");
+          completed = false;
+        } else {
+          totalSpent+=expense.spent;
+        }
+      });
+      trip.totalBudget = totalBudget;
+      trip.totalSpent = totalSpent;
+      trip.status = "P";
+      if (completed){
+        trip.status = "F";
+      }
+    });
 
+    console.log(trips);
     //res.json(trips);
     //Pass serialized data and session flag into template
     res.render('mytrips', { 
