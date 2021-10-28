@@ -1,0 +1,51 @@
+[
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 1,
+        "destination_id": 1,
+        "start_date": "28/10/2021",
+        "duration": "6 Days",
+        "status": "Completed"
+    },
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 2,
+        "destination_id": 2,
+        "start_date": "15/07/2021",
+        "duration": "4 Days",
+        "status": "Completed"
+    },
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 1,
+        "destination_id": 3,
+        "start_date": "2/12/2021",
+        "duration": "5 Days",
+        "status": "Planned"
+    },
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 3,
+        "destination_id": 4,
+        "start_date": "1/05/2020",
+        "duration": "9 Days",
+        "status": "Completed"
+    },
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 3,
+        "destination_id": 5,
+        "start_date": "01/01/2022",
+        "duration": "6 Days",
+        "status": "PLANNED"
+    },
+    {
+        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "user_id": 1,
+        "destination_id": 6,
+        "start_date": "20/3/2021",
+        "duration": "3 Days",
+        "status": "Completed"
+    }
+  ]
+  

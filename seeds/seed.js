@@ -12,12 +12,25 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  // for (const project of projectData) {
-  //   await Project.create({
-  //     ...project,
-  //     user_id: users[Math.floor(Math.random() * users.length)].id,
-  //   });
-  // }
+  for (const Destination of destinationData) {
+    await Project.create({
+      ...project,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+  for (const Expenses of expensesData) {
+    await Project.create({
+      ...project,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+  for (const Trip of tripData) {
+    await Project.create({
+      ...project,
+      user_id: users[Math.floor(Math.random() * users.length)].id,
+    });
+  }
+
 
   process.exit(0);
 };
