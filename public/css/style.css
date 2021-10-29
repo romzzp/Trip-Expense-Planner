@@ -1,24 +1,80 @@
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
-
-.no-button {
-  background: none;
+.navbar {
+  padding-left: 20px;
+}
+.login {
+  float: right;
+}
+.loginPage {
+  padding-top: 50px;
+}
+.page-holder {
+  min-height: 100vh;
+}
+.bg-cover {
+  background-size: cover !important;
+}
+a {
+  text-decoration: none !important;
+}
+.destButton {
+  margin-top: 80px;
+  width: 35%;
+  height: 50px;
+  font-size: 25px;
+  color: #fff;
+}
+.destHeader {
+  backdrop-filter: saturate(50%) blur(5px);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.loginHeader {
+  backdrop-filter: saturate(50%) blur(5px);
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.formLabel {
+  color: rgb(255, 255, 255);
+  font-size: large;
+}
+.h1Tag {
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+.login-container {
+  padding-top: 100px;
+}
+.login-form-1 {
+  padding: 5%;
+}
+.signup-form {
+  padding: 5%;
+}
+.login-container form {
+  padding: 10%;
+}
+.btnSubmit {
+  width: 50%;
+  border-radius: 1rem;
+  padding: 1.5%;
   border: none;
-  padding: 0;
   cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
 }
-
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
+.login-form-1 .btnSubmit {
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  margin-top: 25px;
 }
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+.signup-form .btnSubmit {
+  font-weight: 600;
+  color: #fff;
+  background-color: #0062cc;
+  -ms-transform: translateX(50%);
+  transform: translateX(50%);
+  margin-top: 25px;
 }
