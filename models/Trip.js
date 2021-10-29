@@ -37,10 +37,6 @@ Trip.init(
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    status: {
-      type: DataTypes.STRING,
-      defaultValue: 'P',
-    },
 
   },
   {

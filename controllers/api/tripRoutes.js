@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Trip } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/',  async (req, res) => { 
+router.post('/add-trip',  async (req, res) => { 
   try {
     const newTrip = await Trip.create({
       description: req.body.description,
