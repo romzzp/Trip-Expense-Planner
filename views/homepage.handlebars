@@ -1,4 +1,4 @@
-<!-- Loop over each object in the projects array -->
+{{!-- <!-- Loop over each object in the projects array -->
 {{#each trips as |trip| }}
 <div>
   <h3>{{trip.description}}</h3>
@@ -6,4 +6,20 @@
   <p>{{trip.destination.city}}/{{trip.destination.country}}</p>
   <hr>
 </div>
-{{/each}}
+{{/each}} --}}
+<div
+  id='coverimage'
+  style='background: url(/images/background2.jpg)'
+  class='page-holder bg-cover'
+>
+  <div class='container py-5'>
+    <header class='text-center text-light py-5 destHeader'>
+      <h2 class='display-1 font-weight-bold'>Your trip planning starts here.</h2>
+      <button type='button' class='btn btn-light destButton'>
+
+        <a href='/destinations'>Choose your Destinations.</a>
+      </button>
+    </header>
+
+  </div>
+</div>

@@ -15,20 +15,20 @@ const seedDatabase = async () => {
   });
 
   for (const Destination of destinationData) {
-    await Project.create({
-      ...project,
+    await Destination.create({
+      ...Destination,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
   for (const Expenses of expensesData) {
-    await Project.create({
-      ...project,
+    await Expenses.create({
+      ...expenses,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
   for (const Trip of tripData) {
-    await Project.create({
-      ...project,
+    await Trip.create({
+      ...trip,
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }

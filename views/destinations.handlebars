@@ -1,0 +1,20 @@
+<!-- Header with image -->
+<div style="background: url(/images/background2.jpg)" class="page-holder bg-cover">
+  <div class="container py-5">
+    <header class="text-center text-light py-5 destHeader">
+      <h1 class="display-1 font-weight-bold mb-5">Destinations</h1>
+      <p>Select your destination:</p>
+    </header>
+  </div>
+  <section class="container">
+  <section class="flex-row justify-center">    
+    {{#each destinations as |destination|}}
+    {{> destinationinfo}}
+    {{/each}}
+  </section>
+  <div>
+    <p>
+    </p>
+  </div>
+</section>
+</div>
