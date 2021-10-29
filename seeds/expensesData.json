@@ -1,39 +1,39 @@
 [
     {
         "trip_id": 1,
-        "category": "",
+        "category": "Travel",
         "budget": 400,
-        "spend": 450
+        "spent": 450
+    },
+    {
+        "trip_id": 1,
+        "category": "Food",
+        "budget": 500,
+        "spent": 700
     },
     {
         "trip_id": 2,
-        "category": "",
+        "category": "Food",
         "budget": 500,
-        "spend": 700
+        "spent": 500
+    },
+    {
+        "trip_id": 2,
+        "category": "Hotel",
+        "budget": 350,
+        "spent": 400
     },
     {
         "trip_id": 3,
-        "category": "",
-        "budget": 500,
-        "spend": 500
-    },
-    {
-        "trip_id": 4,
-        "category": "",
-        "budget": 350,
-        "spend": 400
-    },
-    {
-        "trip_id": 5,
-        "category": "",
+        "category": "Accomodation",
         "budget": 600,
-        "spend": 550
+        "spent": 550
     },
     {
-        "trip_id": 6,
-        "category": "",
+        "trip_id": 3,
+        "category": "Food",
         "budget": 500,
-        "spend": 400
+        "spent": 400
     }
   ]
   

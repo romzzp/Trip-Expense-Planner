@@ -1,51 +1,45 @@
 [
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "A trip to Barcelona.",
         "user_id": 1,
         "destination_id": 1,
-        "start_date": "28/10/2021",
-        "duration": "6 Days",
-        "status": "Completed"
+        "start_date": "2021-10-28",
+        "duration": 6
     },
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "A trip to Rome.",
         "user_id": 2,
         "destination_id": 2,
-        "start_date": "15/07/2021",
-        "duration": "4 Days",
-        "status": "Completed"
+        "start_date": "2021-07-15",
+        "duration": 4
     },
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "A family vacation.",
         "user_id": 1,
         "destination_id": 3,
-        "start_date": "2/12/2021",
-        "duration": "5 Days",
-        "status": "Planned"
+        "start_date": "2021-12-02",
+        "duration": 5
     },
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "Quick getaway.",
         "user_id": 3,
-        "destination_id": 4,
-        "start_date": "1/05/2020",
-        "duration": "9 Days",
-        "status": "Completed"
+        "destination_id": 3,
+        "start_date": "2020-05-01",
+        "duration": 9
     },
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "Lovely weekend.",
         "user_id": 3,
-        "destination_id": 5,
-        "start_date": "01/01/2022",
-        "duration": "6 Days",
-        "status": "PLANNED"
+        "destination_id": 2,
+        "start_date": "2022-01-01",
+        "duration": 6
     },
     {
-        "description": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+        "description": "Exotic and nice.",
         "user_id": 1,
-        "destination_id": 6,
-        "start_date": "20/3/2021",
-        "duration": "3 Days",
-        "status": "Completed"
+        "destination_id": 3,
+        "start_date": "2021-03-21",
+        "duration": 3
     }
   ]
   
