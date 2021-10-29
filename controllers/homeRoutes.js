@@ -98,7 +98,7 @@ router.get('/trip/:id', async (req, res) => {
         },
         {
           model: Expenses,
-          attributes: ['category','budget','spent'],
+          attributes: ['category','budget','spent','id'],
         },
       ],
     });

@@ -1,6 +1,3 @@
-{{#if newTrip}}
-{{else}}
-
 <form class="form edit-trip-form">
   <div class="form-group">
     <label for="trip-description">Description</label>
@@ -28,13 +25,16 @@
   <div class="form-group">
     <button class="btn btn-primary" id='edit-delete'>Delete</button>
   </div>
+  </form>
   <hr>
   <h3>Expenses</h3>
+  <section class='expense-group' id='expense-list'>
   <ul id="expense-list">
   {{#each expenses as |expense|}}
-  <li>{{expense.category}} Budget: {{expense.budget}} Spent: {{expense.spent}} <button class="update" id='update-expense' data-expid={{expense.id}}>Update</button><button class="delete" id='delete-expense' data-expid={{expense.id}}>Delete</button></li>
+  <li id='list-expense-{{expense.id}}' data-expenseid='{{expense.id}}'><label for="expense-category-{{expense.id}}">Category</label><input class="form-input" type="text" id="expense-category-{{expense.id}}" value='{{expense.category}}' /> <label for="expense-budget-{{expense.id}}">Budget</label> <input class="form-input" type="text" id="expense-budget-{{expense.id}}" value='{{expense.budget}}' /> <label for="expense-spent-{{expense.id}}">Spent</label> <input class="form-input" type="text" id="expense-spent-{{expense.id}}" value='{{expense.spent}}' />  <button class="update" id='update-expense' data-expid={{expense.id}}>Update</button><button class="delete" id='delete-expense' data-expid={{expense.id}}>Delete</button></li>
   {{/each}}
   </ul>
+  </section>
 
     <form class="form expense-form">
       <div class="form-group">
@@ -54,7 +54,6 @@
       </div>
     </form>
 
-</form>
+
 <script src="../js/trip.js"></script>
 
-{{/if}}
