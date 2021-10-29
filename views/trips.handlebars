@@ -1,7 +1,13 @@
-<section class="container">
-  <section class="flex-row justify-center">    
-    {{#each userTrips as |trip|}}
-    {{> userTrips}}
-    {{/each}}
-  </section>
-  <div id='userId'data-id={{userId}}></div>
+<form class="form">
+  <div class="form-group">
+    <h2>{{description}}</h2>
+    <p>{{destination.city}}, {{destination.country}}</p>
+    <p>{{format_date start_date}} for {{duration}} days.</p>
+  <hr>
+  <h3>Expenses</h3>
+  <ul id="expense-list">
+  {{#each expenses as |expense|}}
+  <li>{{expense.category}} Budget: {{expense.budget}} Spent: {{expense.spent}}</li>
+  {{/each}}
+  </ul>
+</form>
