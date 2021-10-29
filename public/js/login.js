@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       console.log(response.ok);
-      document.location.replace('/profile');
+      document.location.replace('/mytrips');
     } else {
       alert(response.statusText);
     }
@@ -48,7 +48,7 @@ const signupFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.login-form-1')
+  .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
 document

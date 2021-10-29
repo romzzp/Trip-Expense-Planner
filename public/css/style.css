@@ -62,7 +62,7 @@ a {
   border: none;
   cursor: pointer;
 }
-.login-form-1 .btnSubmit {
+.login-form .btnSubmit {
   font-weight: 600;
   color: #fff;
   background-color: #0062cc;
