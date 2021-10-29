@@ -41,21 +41,21 @@ const updateTripHandler = async (event) => {
     }
 
 
-    if (description && tripDate && duration) {
-        console.log("Update");
-        const response = await fetch(`/api/trip/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ description, tripDate, duration, status, destination_id }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        console.log(response);
+    // if (description && tripDate && duration) {
+    //     console.log("Update");
+    //     const response = await fetch(`/api/trip/${id}`, {
+    //         method: 'PUT',
+    //         body: JSON.stringify({ description, tripDate, duration, status, destination_id }),
+    //         headers: { 'Content-Type': 'application/json' },
+    //     });
+    //     console.log(response);
 
-        if (response.ok) {
-            document.location.replace('/mytrips');
-        } else {
-            alert('Failed to update trip.');
-        }
-    }
+    //     if (response.ok) {
+    //         document.location.replace('/mytrips');
+    //     } else {
+    //         alert('Failed to update trip.');
+    //     }
+    // }
 };
 
 const deleteTripHandler = async (event) => {
@@ -104,6 +104,66 @@ const expenseFormHandler = async (event) => {
     
 }
 
+const updateExpenseHandler = async (event) => {
+    event.preventDefault();
+    console.log("Update ");
+    console.log(event.target);
+    console.log(event.target.getAttribute('data-expid'));
+    const id = event.target.getAttribute('data-expid');
+    console.log(id);
+}
+
+const updateDeleteExpenseHandler = async (event) => {
+    event.preventDefault();
+    const trip_id = document.querySelector('#new-exp').getAttribute('data-tripid');
+    console.log(trip_id);
+    console.log("Delete");
+    console.log(event.target);
+    console.log(event.target.getAttribute('data-expid'));
+    const id = event.target.getAttribute('data-expid');
+    console.log(id);
+    console.log(event.target.className);
+    if (event.target.className=="update"){
+        let category = document.querySelector(`#expense-category-${id}`).value;
+        let budget = document.querySelector(`#expense-budget-${id}`).value;
+        let spent = document.querySelector(`#expense-spent-${id}`).value;
+        console.log("Category:"+spent);
+        let response ;
+        if (spent){
+            response = await fetch(`/api/expenses/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ trip_id: trip_id, category: category, budget: budget, spent:spent, id: id }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+        } else {
+            response = await fetch(`/api/expenses/${id}`, {
+                method: 'PUT',
+                body: JSON.stringify({ trip_id: trip_id, category: category, budget: budget, id: id }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+        }
+        
+    
+        if (response.ok) {
+            alert("Expense updated.");
+        } else {
+            alert('Failed to delete expense.');
+        }
+    } else if (event.target.className=="delete"){
+        const response = await fetch(`/api/expenses/${id}`, {
+            method: 'DELETE',
+            body: JSON.stringify({ id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+            document.location.replace(`/trip/${trip_id}`);
+        } else {
+            alert('Failed to delete expense.');
+        }
+    }
+}
+
 const eupd = document.querySelector('#edit-update');
 if (eupd) {
     eupd.addEventListener('click', updateTripHandler);
@@ -121,7 +181,10 @@ if (edel) {
 
 const nexp = document.querySelector('#new-exp');
 if (nexp) {
-    console.log('New exp button');
     nexp.addEventListener('click', expenseFormHandler);
 }
-  
+
+const dexp = document.querySelector(".expense-group");
+if (dexp) {
+    dexp.addEventListener('click', updateDeleteExpenseHandler);
+}
