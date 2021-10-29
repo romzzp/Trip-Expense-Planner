@@ -1,0 +1,10 @@
+<h2>Trips to {{location}}</h2>
+<hr>
+{{#each trips as |trip| }}
+<div>
+  <h3><a href='/trips/{{trip.id}}'>{{trip.description}}</a></h3>
+  <p>Starts on {{format_date trip.start_date}} and lasts for {{trip.duration}} days.</p>
+  <p>Total budget: {{trip.totalBudget}} vs. Total spent: {{trip.totalSpent}}</p>
+  <hr>
+</div>
+{{/each}}

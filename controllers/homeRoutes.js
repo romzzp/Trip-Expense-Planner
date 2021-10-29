@@ -6,9 +6,6 @@ router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const tripData = await Trip.findAll({
-      where: {
-        status: 'F',
-      },
       include: [
         {
           model: Destination,
@@ -39,9 +36,9 @@ router.get('/mytrips', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const tripData = await Trip.findAll({
-      // where: {
-      //   user_id: req.session.user_id,
-      // },
+      where: {
+        user_id: req.session.user_id,
+      },
       include: [
         {
           model: Destination,
@@ -118,6 +115,33 @@ router.get('/trip/:id', async (req, res) => {
   }
 });
 
+router.get('/trips/:id', async (req, res) => {
+  try {
+    const tripData = await Trip.findByPk(req.params.id, {
+      include: [
+        {
+          model: Destination,
+          attributes: ['city','country'],
+        },
+        {
+          model: Expenses,
+          attributes: ['category','budget','spent'],
+        },
+      ],
+    });
+
+    const trip = tripData.get({ plain: true });
+    console.log(trip);
+    //res.json(trip);
+    res.render('trips', {
+      ...trip,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -165,7 +189,7 @@ router.get('/destination/:citycountry', async (req, res) => {
 router.get('/destinations', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const destData = await Trip.findAll({});
+    const destData = await Destination.findAll({});
 
     // Serialize data so the template can read it
     const destinations = destData.map((destination) => destination.get({ plain: true }));
@@ -176,6 +200,66 @@ router.get('/destinations', async (req, res) => {
       destinations, 
       logged_in: req.session.logged_in 
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/destinations/:dest_id', async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+
+    const tripData = await Trip.findAll({
+      where: {
+        destination_id: req.params.dest_id
+      },
+      include: [
+        {
+          model: Destination,
+          attributes: ['city','country'],
+        },
+        {
+          model: Expenses,
+          attributes: ['category','budget','spent','id'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const trips = tripData.map((trip) => trip.get({ plain: true }));
+
+    let totalBudget = 0;
+    let totalSpent = 0;
+    let completed = true;
+    let location;
+    trips.forEach(trip => {
+      console.log(trip);
+      location = `${trip.destination.city} @ ${trip.destination.country}`;
+      trip.expenses.forEach(expense => {
+        totalBudget +=  expense.budget;
+        if (expense.spent===null){
+          console.log("Expense null");
+          completed = false;
+        } else {
+          totalSpent+=expense.spent;
+        }
+      });
+      trip.totalBudget = totalBudget;
+      trip.totalSpent = totalSpent;
+      trip.status = "P";
+      if (completed){
+        trip.status = "F";
+      }
+    });
+
+    //res.json(trips);
+    //Pass serialized data and session flag into template
+    res.render('destination', { 
+      trips, 
+      location,
+      logged_in: req.session.logged_in 
+    });
+
   } catch (err) {
     res.status(500).json(err);
   }
