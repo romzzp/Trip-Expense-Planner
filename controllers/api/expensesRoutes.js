@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Expenses } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/',  async (req, res) => {
+router.post('/',  withAuth, async (req, res) => {
   try {
     console.log("expense create");
     console.log(req.body.spent);
@@ -29,7 +29,7 @@ router.post('/',  async (req, res) => {
   }
 });
 
-router.put('/:id',  async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   // update a blogpost by its `id` value
   try {
     const tripData = await Expenses.update({

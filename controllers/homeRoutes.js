@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/mytrips', async (req, res) => {
+router.get('/mytrips', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const tripData = await Trip.findAll({
@@ -88,7 +88,7 @@ router.get('/mytrips', async (req, res) => {
   }
 });
 
-router.get('/trip/:id', async (req, res) => {
+router.get('/trip/:id', withAuth, async (req, res) => {
   try {
     const tripData = await Trip.findByPk(req.params.id, {
       include: [
@@ -115,7 +115,7 @@ router.get('/trip/:id', async (req, res) => {
   }
 });
 
-router.get('/trips/:id', async (req, res) => {
+router.get('/trips/:id', withAuth, async (req, res) => {
   try {
     const tripData = await Trip.findByPk(req.params.id, {
       include: [
@@ -161,7 +161,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
-router.get('/destination/:citycountry', async (req, res) => {
+router.get('/destination/:citycountry', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     let citycountry = req.params.citycountry;
@@ -186,7 +186,7 @@ router.get('/destination/:citycountry', async (req, res) => {
   }
 });
 
-router.get('/destinations', async (req, res) => {
+router.get('/destinations', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const destData = await Destination.findAll({});
@@ -205,7 +205,7 @@ router.get('/destinations', async (req, res) => {
   }
 });
 
-router.get('/destinations/:dest_id', async (req, res) => {
+router.get('/destinations/:dest_id', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
 

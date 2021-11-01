@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Trip } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/addtrip',  async (req, res) => { 
+router.post('/addtrip', withAuth, async (req, res) => { 
   console.log("Enters addtrip");
   console.log(req.body);
   try {
@@ -20,7 +20,7 @@ router.post('/addtrip',  async (req, res) => {
   }
 });
 
-router.post('/add-trip',  async (req, res) => { 
+router.post('/add-trip', withAuth, async (req, res) => { 
   try {
     const newTrip = await Trip.create({
       description: req.body.description,
@@ -37,7 +37,7 @@ router.post('/add-trip',  async (req, res) => {
   }
 });
 
-router.put('/:id',  async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     // update a blogpost by its `id` value
     try {
       const tripData = await Trip.update({
@@ -54,7 +54,7 @@ router.put('/:id',  async (req, res) => {
     }
   });
 
-router.delete('/:id',   async (req, res) => {
+router.delete('/:id', withAuth,  async (req, res) => {
   try {
     const tripData = await Trip.destroy({
       where: {
