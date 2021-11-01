@@ -41,21 +41,21 @@ const updateTripHandler = async (event) => {
     }
 
 
-    // if (description && tripDate && duration) {
-    //     console.log("Update");
-    //     const response = await fetch(`/api/trip/${id}`, {
-    //         method: 'PUT',
-    //         body: JSON.stringify({ description, tripDate, duration, status, destination_id }),
-    //         headers: { 'Content-Type': 'application/json' },
-    //     });
-    //     console.log(response);
+    if (description && tripDate && duration) {
+        console.log("Update");
+        const response = await fetch(`/api/trip/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ description, tripDate, duration, status, destination_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        console.log(response);
 
-    //     if (response.ok) {
-    //         document.location.replace('/mytrips');
-    //     } else {
-    //         alert('Failed to update trip.');
-    //     }
-    // }
+        if (response.ok) {
+            document.location.replace('/mytrips');
+        } else {
+            alert('Failed to update trip.');
+        }
+    }
 };
 
 const deleteTripHandler = async (event) => {

@@ -2,6 +2,24 @@ const router = require('express').Router();
 const { Trip } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+router.post('/addtrip',  async (req, res) => { 
+  console.log("Enters addtrip");
+  console.log(req.body);
+  try {
+    const newTrip = await Trip.create({
+      description: req.body.description,
+      start_date: req.body.startdate,
+      duration: req.body.duration,
+      destination_id: req.body.destination_id,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newTrip);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.post('/add-trip',  async (req, res) => { 
   try {
     const newTrip = await Trip.create({

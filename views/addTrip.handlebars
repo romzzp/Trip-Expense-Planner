@@ -3,11 +3,11 @@
     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
       <h1 class='h1Tag'>Welcome, {{name}}!</h1>
       <br />
-      <h3 class='h1Tag'>Plan a New Trip:</h3>
+      <h3 class='h1Tag'>Plan a New Trip</h3>
 
       <form class='form new-trip-form'>
         <div class='form-group'>
-          <label class='formLabel' for='trip-name'>Trip name:</label>
+          <label class='formLabel' for='trip-name'>Trip Description</label>
           <input
             class='form-control'
             type='text'
@@ -16,24 +16,25 @@
           />
         </div>
         <div class='form-group'>
-          <label class='formLabel' for='trip-desc'>Description:</label>
-          <textarea
-            class='form-control'
-            id='trip-desc'
-            name='trip-desc'
-          ></textarea>
-        </div>
-        <div class='form-group'>
-          <label class='formLabel' for='trip-destination'>Trip destination:</label>
+          <label class='formLabel' for='trip-city'>City</label>
           <input
             class='form-control'
             type='text'
-            id='trip-destination'
-            name='trip-destination'
+            id='trip-city'
+            name='trip-city'
           />
         </div>
         <div class='form-group'>
-          <label class='formLabel' for='trip-date'>Select trip starting date:</label>
+          <label class='formLabel' for='trip-city'>Country</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-country'
+            name='trip-country'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-date'>Select trip starting date</label>
           <input
             class='form-control'
             type='date'
@@ -42,22 +43,13 @@
           />
         </div>
         <div class='form-group'>
-          <label class='formLabel' for='trip-length'>Select the duration of the
+          <label class='formLabel' for='trip-duration'>Select the duration of the
             trip.</label>
           <input
             class='form-control'
             type='number'
-            id='trip-length'
-            name='trip-length'
-          />
-        </div>
-        <div class='form-group'>
-          <label class='formLabel' for='trip-budget'>Planned Budget ($):</label>
-          <input
-            class='form-control'
-            type='number'
-            id='trip-budget'
-            name='trip-budget'
+            id='trip-duration'
+            name='trip-duration'
           />
         </div>
 
@@ -66,29 +58,10 @@
         </div>
       </form>
 
-      {{#if trips.length}}
-        <div class='col-md-6 trip-list'>
-          <h3>Current trips:</h3>
-
-          {{#each trips as |trip|}}
-            <div class='row mb-2'>
-              <div class='col-md-8'>
-                <h4><a href='/trip/{{trip.id}}'>{{trip.name}}</a></h4>
-              </div>
-              <div class='col-md-4'>
-                <button
-                  class='btn btn-sm btn-danger buttons'
-                  data-id='{{trip.id}}'
-                >DELETE</button>
-              </div>
-            </div>
-          {{/each}}
-        </div>
-      {{/if}}
+      
 
     </div>
   </div>
 </div>
 
-<script src="./js/addtrip.js"></script>
-
+<script src='./js/addtrip.js'></script>

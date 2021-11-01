@@ -1,17 +1,51 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#trip-name').value.trim();
-  const description = document.querySelector('#trip-desc').value.trim();
-  const dest = document.querySelector('#trip-destination').value.trim();
-  const startDate = document.querySelector('#trip-date').value.trim();
-  const tripDuration = document.querySelector('#trip-length').value.trim();
-  const budget = document.querySelector('#trip-budget').value.trim();
+  const description = document.querySelector('#trip-name').value.trim();
+  const city = document.querySelector('#trip-city').value.trim();
+  const country = document.querySelector('#trip-country').value.trim();
+  const startdate = document.querySelector('#trip-date').value.trim();
+  const duration = document.querySelector('#trip-duration').value.trim();
 
-  if (name && description && dest && startDate && tripDuration && budget) {
-    const response = await fetch(`/mytrips`, {
+  if (description && city && country && startdate && duration) {
+
+    console.log(startdate);
+
+    let destination_id;
+
+    const destQuery = await fetch(`/destination/${city}@${country}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    const destinations = await destQuery.json();
+    console.log("Answer");
+    console.log(destinations);
+
+    if (destinations && destinations.length > 0) {
+        destination_id = destinations[0].id;
+        console.log(destination_id);
+    } else {
+        console.log("Create new destination");
+        const responseNew = await fetch(`/api/destination`, {
+            method: 'POST',
+            body: JSON.stringify({ city, country }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+        console.log(responseNew);
+
+        if (!responseNew.ok) {
+            alert('Failed to add new destination.');
+        } else {
+            const destinations = await responseNew.json();
+            console.log(destinations);
+            destination_id = destinations.id;
+            console.log(destination_id);
+        }
+    }
+
+    const response = await fetch('/api/trip/addtrip', {
       method: 'POST',
-      body: JSON.stringify({ name, description, dest, startDate, tripDuration, budget }),
+      body: JSON.stringify({ description, startdate, duration, destination_id }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,26 +59,8 @@ const newFormHandler = async (event) => {
   }
 };
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
-
-//     const response = await fetch(`/api/trips/${id}`, {
-//       method: 'DELETE',
-//     });
-
-//     if (response.ok) {
-//       document.location.replace('/mytrips');
-//     } else {
-//       alert('Failed to delete trip');
-//     }
-//   }
-// };
 
 document
   .querySelector('.new-trip-form')
   .addEventListener('submit', newFormHandler);
 
-// document
-//   .querySelector('.trip-list')
-//   .addEventListener('click', delButtonHandler);
