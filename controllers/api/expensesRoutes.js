@@ -4,8 +4,6 @@ const withAuth = require('../../utils/auth');
 
 router.post('/',  withAuth, async (req, res) => {
   try {
-    console.log("expense create");
-    console.log(req.body.spent);
     let newExpense 
     if (req.body.spent){
       newExpense= await Expenses.create({

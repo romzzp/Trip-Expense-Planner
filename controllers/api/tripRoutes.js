@@ -3,8 +3,6 @@ const { Trip } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/addtrip', withAuth, async (req, res) => { 
-  console.log("Enters addtrip");
-  console.log(req.body);
   try {
     const newTrip = await Trip.create({
       description: req.body.description,

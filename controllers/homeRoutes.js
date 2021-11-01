@@ -53,30 +53,24 @@ router.get('/mytrips', withAuth, async (req, res) => {
 
     // Serialize data so the template can read it
     const trips = tripData.map((trip) => trip.get({ plain: true }));
-    console.log(trips);
+
     let totalBudget = 0;
     let totalSpent = 0;
     let completed = true;
     trips.forEach(trip => {
-      console.log(trip);
       trip.expenses.forEach(expense => {
         totalBudget +=  expense.budget;
         if (expense.spent===null){
-          console.log("Expense null");
-          completed = false;
+          //completed = false;
         } else {
           totalSpent+=expense.spent;
         }
       });
       trip.totalBudget = totalBudget;
       trip.totalSpent = totalSpent;
-      trip.status = "P";
-      if (completed){
-        trip.status = "F";
-      }
+
     });
 
-    console.log(trips);
     //res.json(trips);
     //Pass serialized data and session flag into template
     res.render('mytrips', { 
@@ -104,7 +98,7 @@ router.get('/trip/:id', withAuth, async (req, res) => {
     });
 
     const trip = tripData.get({ plain: true });
-    console.log(trip);
+
     //res.json(trip);
     res.render('trip', {
       ...trip,
@@ -131,7 +125,7 @@ router.get('/trips/:id', withAuth, async (req, res) => {
     });
 
     const trip = tripData.get({ plain: true });
-    console.log(trip);
+
     //res.json(trip);
     res.render('trips', {
       ...trip,
@@ -167,8 +161,7 @@ router.get('/destination/:citycountry', withAuth, async (req, res) => {
     let citycountry = req.params.citycountry;
     let city = citycountry.split('@')[0];
     let country = citycountry.split('@')[1];
-    console.log(city);
-    console.log(country);
+
 
     const tripData = await Destination.findAll({
       where: {
@@ -178,7 +171,6 @@ router.get('/destination/:citycountry', withAuth, async (req, res) => {
 
     // Serialize data so the template can read it
     const trips = tripData.map((trip) => trip.get({ plain: true }));
-    console.log(trips);
     res.json(trips);
 
   } catch (err) {
@@ -230,26 +222,19 @@ router.get('/destinations/:dest_id', withAuth, async (req, res) => {
 
     let totalBudget = 0;
     let totalSpent = 0;
-    let completed = true;
     let location;
     trips.forEach(trip => {
-      console.log(trip);
       location = `${trip.destination.city} @ ${trip.destination.country}`;
       trip.expenses.forEach(expense => {
         totalBudget +=  expense.budget;
         if (expense.spent===null){
-          console.log("Expense null");
-          completed = false;
+          //completed = false;
         } else {
           totalSpent+=expense.spent;
         }
       });
       trip.totalBudget = totalBudget;
       trip.totalSpent = totalSpent;
-      trip.status = "P";
-      if (completed){
-        trip.status = "F";
-      }
     });
 
     //res.json(trips);

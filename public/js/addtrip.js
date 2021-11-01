@@ -9,8 +9,6 @@ const newFormHandler = async (event) => {
 
   if (description && city && country && startdate && duration) {
 
-    console.log(startdate);
-
     let destination_id;
 
     const destQuery = await fetch(`/destination/${city}@${country}`, {
@@ -18,28 +16,21 @@ const newFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
     const destinations = await destQuery.json();
-    console.log("Answer");
-    console.log(destinations);
 
     if (destinations && destinations.length > 0) {
         destination_id = destinations[0].id;
-        console.log(destination_id);
     } else {
-        console.log("Create new destination");
         const responseNew = await fetch(`/api/destination`, {
             method: 'POST',
             body: JSON.stringify({ city, country }),
             headers: { 'Content-Type': 'application/json' },
         });
-        console.log(responseNew);
 
         if (!responseNew.ok) {
             alert('Failed to add new destination.');
         } else {
             const destinations = await responseNew.json();
-            console.log(destinations);
             destination_id = destinations.id;
-            console.log(destination_id);
         }
     }
 
