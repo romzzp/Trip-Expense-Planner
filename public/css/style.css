@@ -89,3 +89,12 @@ p {
   transform: translateX(50%);
   margin-top: 25px;
 }
+
+.budget-list {
+  text-align: center;
+  margin: 10px;
+}
+
+.budget-list button {
+  margin: 2px 2px;
+}
