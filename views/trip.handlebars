@@ -65,47 +65,51 @@
       <section class='expense-group' id='expense-list'>
         <ul id='expense-list'>
           {{#each expenses as |expense|}}
-            <li
-              id='list-expense-{{expense.id}}'
-              data-expenseid='{{expense.id}}'
-            ><label
-                class='formLabel'
-                for='expense-category-{{expense.id}}'
-              >Category</label><input
-                class='form-control'
-                type='text'
-                id='expense-category-{{expense.id}}'
-                value='{{expense.category}}'
-              />
-              <label
-                class='formLabel'
-                for='expense-budget-{{expense.id}}'
-              >Budget</label>
-              <input
-                class='form-control'
-                type='text'
-                id='expense-budget-{{expense.id}}'
-                value='{{expense.budget}}'
-              />
-              <label
-                class='formLabel'
-                for='expense-spent-{{expense.id}}'
-              >Spent</label>
-              <input
-                class='form-control'
-                type='text'
-                id='expense-spent-{{expense.id}}'
-                value='{{expense.spent}}'
-              />
-              <button
-                class='update'
-                id='update-expense'
-                data-expid={{expense.id}}
-              >Update</button><button
-                class='delete'
-                id='delete-expense'
-                data-expid={{expense.id}}
-              >Delete</button></li>
+            <div class='mx-auto'>
+              <div class='form-group'>
+                <li
+                  id='list-expense-{{expense.id}}'
+                  data-expenseid='{{expense.id}}'
+                ><label
+                    class='formLabel'
+                    for='expense-category-{{expense.id}}'
+                  >Category</label><input
+                    class='form-input'
+                    type='text'
+                    id='expense-category-{{expense.id}}'
+                    value='{{expense.category}}'
+                  />
+                  <label
+                    class='formLabel'
+                    for='expense-budget-{{expense.id}}'
+                  >Budget</label>
+                  <input
+                    class='form-input'
+                    type='text'
+                    id='expense-budget-{{expense.id}}'
+                    value='{{expense.budget}}'
+                  />
+                  <label
+                    class='formLabel'
+                    for='expense-spent-{{expense.id}}'
+                  >Spent</label>
+                  <input
+                    class='form-input'
+                    type='text'
+                    id='expense-spent-{{expense.id}}'
+                    value='{{expense.spent}}'
+                  />
+                  <button
+                    class='update btn btn-primary buttons'
+                    id='update-expense'
+                    data-expid={{expense.id}}
+                  >Update</button><button
+                    class='delete btn btn-primary buttons'
+                    id='delete-expense'
+                    data-expid={{expense.id}}
+                  >Delete</button></li>
+              </div>
+            </div>
           {{/each}}
         </ul>
       </section>

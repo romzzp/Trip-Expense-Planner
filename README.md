@@ -1,129 +1,68 @@
-# 15 Project 2: Interactive Full-Stack Application
+# Trip Expense Planner
 
-Projects play a key role in your journey to becoming a full-stack web developer. As you enter the last phase of the boot camp, you’ll begin to apply for development jobs. If you want to land interviews, your portfolio must feature high-quality deployed examples of your work—-and you can use your finished projects for that very purpose.
+This applicatin lets the user create an expense tracker for the user's trips. This application has the ability to view all the trips taken by any user and use it for the reference to have the user's trip expense planned. User can create an account and add, delete or modify the planned or completed trips.
 
-As your first opportunity to show employers your collaborative skills and coding abilities, this particular project will be a focal point of your portfolio. Employers want to see what you can do, but they also want to see how you work with other developers. The more examples of deployed collaborative work you have in your portfolio, the more likely you are to get an interview and a job.
 
-## Project Requirements
+## Created by
 
-You and your group will use everything you’ve learned over the past six units to create a real-world full-stack application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+[Altug Cakmakci](https://github.com/altugcakmakci)
 
-* Use Node.js and Express.js to create a RESTful API.
+[Romal Patel](https://github.com/romzzp)
 
-* Use Handlebars.js as the template engine.
+[Talha Latif](https://github.com/Talha636)
 
-* Use MySQL and the Sequelize ORM for the database.
+## Requirements
+Use Node.js and Express.js to create a RESTful API.
 
-* Have both GET and POST routes for retrieving and adding new data.
+Use Handlebars.js as the template engine.
 
-* Use at least one new library, package, or technology that we haven’t discussed.
+Use MySQL and the Sequelize ORM for the database.
 
-* Have a folder structure that meets the MVC paradigm.
+Have both GET and POST routes for retrieving and adding new data.
 
-* Include authentication (express-session and cookies).
+Use at least one new library, package, or technology that we haven’t discussed.
 
-* Protect API keys and sensitive information with environment variables.
+Have a folder structure that meets the MVC paradigm.
 
-* Be deployed using Heroku (with data).
+Include authentication (express-session and cookies).
 
-* Have a polished UI.
+Protect API keys and sensitive information with environment variables.
 
-* Be responsive.
+Be deployed using Heroku (with data).
 
-* Be interactive (i.e., accept and respond to user input).
+Have a polished UI.
 
-* Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+Be responsive.
 
-* Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+Be interactive (i.e., accept and respond to user input).
 
-## Presentation Requirements
+Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following: 
+Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+## Link to the application:
 
-* Elevator pitch: a one minute description of your application
+https://github.com/romzzp/Trip-Expense-Planner
 
-* Concept: What is your user story? What was your motivation for development?
+## Link to Heroku:
 
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+https://rta-trip-planner.herokuapp.com/login
 
-* Demo: Show your stuff!
+## Screenshots of the application
 
-* Directions for Future Development
+Mainpage
+<img src=./public/images/mainpage.png>
 
-* Links to the deployed application and the GitHub repository. Use the [Guide to Deploy with Heroku and MySQL](https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql) on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
+Loginpage
+<img src=./public/images/loginpage.png>
 
-## Grading Requirements
+Destination page
+<img src=./public/images/destinationspage.png>
 
-This project is graded based on the following criteria:
+User page
+<img src=./public/images/userpage.png>
 
-### Technical Acceptance Criteria: 25%
+Destinations details page
+<img src=./public/images/destinationdetailspage.png>
 
-* Satisfies the following code requirements:
-
-  * Application uses a Node.js and Express.js back end and uses both GET and POST routes for retrieving and adding new data.
-
-  * Application has a folder structure that meets the MVC paradigm and uses Handlebars.js as the template engine.
-
-  * Application is backed by a MySQL database with a Sequelize ORM and protects API keys and sensitive information with environment variables.
-
-  * Application includes user authentication (express-session and cookies).
-
-  * Application uses at least one new library, package, or technology not covered in class.
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL on Heroku and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id-naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using Powerpoint or a similar presentation software.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-## How to Submit Your Interactive Full-Stack Project
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
-
-
-<img width="1440" alt="Screen Shot 2021-11-01 at 10 48 13" src="https://user-images.githubusercontent.com/85548877/139690910-706605f4-0990-448c-91c2-ccc920f7d247.png">
+Add trips page
+<img src=./public/images/addtripspage.png>
