@@ -1,10 +1,20 @@
-<h2>Trips to {{location}}</h2>
-<hr>
+<div class="container py-5">
+    <header class="text-center text-light py-5 destHeader">
+<h3 class="display-1 font-weight-bold mb-5">Trips to {{location}}</h3>
+</header>
+  </div>
+<section class="container">
+    <div class='row'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <div class='card-columns mytrips'>
 {{#each trips as |trip| }}
-<div>
+<div class='tripcard mx-auto' style='max-width: 318px;'>
   <h3><a href='/trips/{{trip.id}}'>{{trip.description}}</a></h3>
   <p>Starts on {{format_date trip.start_date}} and lasts for {{trip.duration}} days.</p>
   <p>Total budget: {{trip.totalBudget}} vs. Total spent: {{trip.totalSpent}}</p>
   <hr>
 </div>
 {{/each}}
+</div>
+    </div>
+    </section>
