@@ -89,3 +89,9 @@ p {
   transform: translateX(50%);
   margin-top: 25px;
 }
+.exlist {
+  color: #fff;
+}
+.tripP {
+  text-align: center;
+}
