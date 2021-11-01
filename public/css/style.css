@@ -1,7 +1,3 @@
-header,
-.project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
 .navbar {
   padding-left: 20px;
 }
@@ -18,21 +14,34 @@ header,
   background-size: cover !important;
 }
 a {
-  text-decoration: none !important;
+  text-decoration: #fff;
 }
 .destButton {
   margin-top: 80px;
   width: 35%;
   height: 50px;
   font-size: 25px;
-  color: #fff;
+  color: rgb(255, 255, 255);
 }
-.destHeader {
-  backdrop-filter: saturate(50%) blur(5px);
+.mytrips {
+  margin-top: 50px;
+}
+.tripcard {
+  margin: 30px;
+  padding: 30px;
+  backdrop-filter: saturate(50%) blur(5px) brightness(70%);
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
+.tripcard .anchor {
+  color: rgb(255, 255, 255);
+}
+.tripcard a,
+p {
+  color: rgb(255, 255, 255);
+}
+.destHeader,
 .loginHeader {
-  backdrop-filter: saturate(50%) blur(5px);
+  backdrop-filter: saturate(50%) blur(5px) brightness(70%);
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .formLabel {
@@ -41,39 +50,41 @@ a {
 }
 .h1Tag {
   text-align: center;
+  text-decoration: underline;
   color: rgb(255, 255, 255);
 }
 .login-container {
   padding-top: 100px;
 }
-.login-form-1 {
-  padding: 5%;
-}
+.login-form,
 .signup-form {
   padding: 5%;
 }
 .login-container form {
   padding: 10%;
 }
-.btnSubmit {
-  width: 50%;
+.buttons {
   border-radius: 1rem;
   padding: 1.5%;
   border: none;
   cursor: pointer;
 }
-.login-form .btnSubmit {
+.login-form .buttons {
+  width: 50%;
   font-weight: 600;
   color: #fff;
-  background-color: #0062cc;
+  background-color: #0d6efd;
   -ms-transform: translateX(50%);
   transform: translateX(50%);
   margin-top: 25px;
 }
-.signup-form .btnSubmit {
+.expense-form .buttons,
+.edit-trip-form .buttons,
+.new-trip-form .buttons,
+.signup-form .buttons {
+  width: 50%;
   font-weight: 600;
   color: #fff;
-  background-color: #0062cc;
   -ms-transform: translateX(50%);
   transform: translateX(50%);
   margin-top: 25px;
