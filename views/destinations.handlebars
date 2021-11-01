@@ -7,18 +7,17 @@
     </header>
   </div>
   <section class="container">
-  <section class="flex-row justify-center">    
-    {{#each destinations as |destination|}}
-    <section class="dest-card">
-      <div class="card-body" class+"col-md-4" id="container">       
-        <h5 id='location' data-destid='{{destination.id}}'><a href='/destinations/{{destination.id}}'>{{destination.city}}, {{destination.country}}</a></h5>
+    <div class='row'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <div class='card-columns mytrips'>
+        {{#each destinations as |destination|}}
+    <section class="dest-card ">
+      <div class="card-body col-md-4 tripcard mx-auto" style="max-width: 318px;" id="container">       
+        <h5 id='location' data-destid='{{destination.id}}'><a class="anchor" href='/destinations/{{destination.id}}'>{{destination.city}}, {{destination.country}}</a></h5>
       </div>
     </section>
     {{/each}}
-  </section>
-  <div>
-    <p>
-    </p>
-  </div>
-</section>
+    </div>
+    </div>
+    </section>
 </div>

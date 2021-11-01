@@ -1,10 +1,25 @@
 <!-- Loop over each object in the projects array -->
-{{#each trips as |trip| }}
-<div>
-  <h3><a href='/trip/{{trip.id}}'>{{trip.description}}</a></h3>
-  <p>Starts on {{format_date trip.start_date}} and lasts for {{trip.duration}} days.</p>
-  <p>{{trip.destination.city}}/{{trip.destination.country}}</p>
-  <p>Total budget: {{trip.totalBudget}} vs. Total spent: {{trip.totalSpent}}</p>
-  <hr>
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <div class='card-columns mytrips'>
+        {{#each trips as |trip|}}
+          <div class='tripcard mx-auto' style='max-width: 318px;'>
+            <h3><a href='/trip/{{trip.id}}'>{{trip.description}}</a></h3>
+            <p>Starts on
+              {{format_date trip.start_date}}
+              and lasts for
+              {{trip.duration}}
+              days.</p>
+            <p>{{trip.destination.city}}/{{trip.destination.country}}</p>
+            <p>Total budget:
+              {{trip.totalBudget}}
+              vs. Total spent:
+              {{trip.totalSpent}}</p>
+            <hr />
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
 </div>
-{{/each}}
