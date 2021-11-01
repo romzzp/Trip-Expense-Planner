@@ -1,59 +1,139 @@
-<form class="form edit-trip-form">
-  <div class="form-group">
-    <label for="trip-description">Description</label>
-    <input class="form-input" type="text" id="trip-description" data-tripid='{{id}}' value='{{description}}' />
-  </div>
-    <div class="form-group">
-    <label for="trip-city">City</label>
-    <input class="form-input" type="text" id="trip-city" value='{{destination.city}}' />
-  </div>
-    <div class="form-group">
-    <label for="trip-country">Country</label>
-    <input class="form-input" type="text" id="trip-country" value='{{destination.country}}' />
-  </div>
-    <div class="form-group">
-    <label for="trip-date">Start Date</label>
-    <input class="form-input" type="text" id="trip-date" value='{{format_date start_date}}' />
-  </div>
-    <div class="form-group">
-    <label for="trip-duration">Duration (days)</label>
-    <input class="form-input" type="text" id="trip-duration" value='{{duration}}' />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" id='edit-update'>Update</button>
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" id='edit-delete'>Delete</button>
-  </div>
-  </form>
-  <hr>
-  <h3>Expenses</h3>
-  <section class='expense-group' id='expense-list'>
-  <ul id="expense-list">
-  {{#each expenses as |expense|}}
-  <li id='list-expense-{{expense.id}}' data-expenseid='{{expense.id}}'><label for="expense-category-{{expense.id}}">Category</label><input class="form-input" type="text" id="expense-category-{{expense.id}}" value='{{expense.category}}' /> <label for="expense-budget-{{expense.id}}">Budget</label> <input class="form-input" type="text" id="expense-budget-{{expense.id}}" value='{{expense.budget}}' /> <label for="expense-spent-{{expense.id}}">Spent</label> <input class="form-input" type="text" id="expense-spent-{{expense.id}}" value='{{expense.spent}}' />  <button class="update" id='update-expense' data-expid={{expense.id}}>Update</button><button class="delete" id='delete-expense' data-expid={{expense.id}}>Delete</button></li>
-  {{/each}}
-  </ul>
-  </section>
+<div class='container login-container py-5'>
+  <div class='flex-row justify-center loginHeader loginPage'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <form class='form edit-trip-form'>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-description'>Description</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-description'
+            data-tripid='{{id}}'
+            value='{{description}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-city'>City</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-city'
+            value='{{destination.city}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-country'>Country</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-country'
+            value='{{destination.country}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-date'>Start Date</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-date'
+            value='{{format_date start_date}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-duration'>Duration (days)</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-duration'
+            value='{{duration}}'
+          />
+        </div>
+        <div class='form-group'>
+          <button
+            class='btn btn-primary buttons'
+            id='edit-update'
+          >Update</button>
+        </div>
+        <div class='form-group'>
+          <button
+            class='btn btn-primary buttons'
+            id='edit-delete'
+          >Delete</button>
+        </div>
+      </form>
+      <h3>Expenses</h3>
+      <section class='expense-group' id='expense-list'>
+        <ul id='expense-list'>
+          {{#each expenses as |expense|}}
+            <li
+              id='list-expense-{{expense.id}}'
+              data-expenseid='{{expense.id}}'
+            ><label
+                class='formLabel'
+                for='expense-category-{{expense.id}}'
+              >Category</label><input
+                class='form-control'
+                type='text'
+                id='expense-category-{{expense.id}}'
+                value='{{expense.category}}'
+              />
+              <label
+                class='formLabel'
+                for='expense-budget-{{expense.id}}'
+              >Budget</label>
+              <input
+                class='form-control'
+                type='text'
+                id='expense-budget-{{expense.id}}'
+                value='{{expense.budget}}'
+              />
+              <label
+                class='formLabel'
+                for='expense-spent-{{expense.id}}'
+              >Spent</label>
+              <input
+                class='form-control'
+                type='text'
+                id='expense-spent-{{expense.id}}'
+                value='{{expense.spent}}'
+              />
+              <button
+                class='update'
+                id='update-expense'
+                data-expid={{expense.id}}
+              >Update</button><button
+                class='delete'
+                id='delete-expense'
+                data-expid={{expense.id}}
+              >Delete</button></li>
+          {{/each}}
+        </ul>
+      </section>
 
-    <form class="form expense-form">
-      <div class="form-group">
-        <label for="expense-category">Category</label>
-        <input class="form-input" type="text" id="expense-category">
-      </div>
-      <div class="form-group">
-        <label for="expense-budget">Budget</label>
-        <input class="form-input" type="text" id="expense-budget">
-      </div>
-            <div class="form-group">
-        <label for="expense-spent">Spent</label>
-        <input class="form-input" type="text" id="expense-spent">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit" id='new-exp'  data-tripid='{{id}}'>Add Expense</button>
-      </div>
-    </form>
+      <form class='form expense-form'>
+        <div class='form-group'>
+          <label class='formLabel' for='expense-category'>Category</label>
+          <input class='form-control' type='text' id='expense-category' />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='expense-budget'>Budget</label>
+          <input class='form-control' type='text' id='expense-budget' />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='expense-spent'>Spent</label>
+          <input class='form-control' type='text' id='expense-spent' />
+        </div>
+        <div class='form-group'>
+          <button
+            class='btn btn-primary buttons'
+            type='submit'
+            id='new-exp'
+            data-tripid='{{id}}'
+          >Add Expense</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
-
-<script src="../js/trip.js"></script>
-
+<script src='../js/trip.js'></script>

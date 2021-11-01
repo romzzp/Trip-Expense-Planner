@@ -1,61 +1,94 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
+<div class='container login-container py-5'>
+  <div class='flex-row justify-center loginHeader loginPage'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <h1 class='h1Tag'>Welcome, {{name}}!</h1>
+      <br />
+      <h3 class='h1Tag'>Plan a New Trip:</h3>
 
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Plan a New Trip:</h3>
+      <form class='form new-trip-form'>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-name'>Trip name:</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-name'
+            name='trip-name'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-desc'>Description:</label>
+          <textarea
+            class='form-control'
+            id='trip-desc'
+            name='trip-desc'
+          ></textarea>
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-destination'>Trip destination:</label>
+          <input
+            class='form-control'
+            type='text'
+            id='trip-destination'
+            name='trip-destination'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-date'>Select trip starting date:</label>
+          <input
+            class='form-control'
+            type='date'
+            id='trip-date'
+            name='trip-date'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-length'>Select the duration of the
+            trip.</label>
+          <input
+            class='form-control'
+            type='number'
+            id='trip-length'
+            name='trip-length'
+          />
+        </div>
+        <div class='form-group'>
+          <label class='formLabel' for='trip-budget'>Planned Budget ($):</label>
+          <input
+            class='form-control'
+            type='number'
+            id='trip-budget'
+            name='trip-budget'
+          />
+        </div>
 
-    <form class="form new-trip-form">
-      <div class="form-group">
-        <label for="trip-name">Trip name:</label>
-        <input class="form-input" type="text" id="trip-name" name="trip-name">
-      </div>
-      <div class="form-group">
-        <label for="trip-desc">Description:</label>
-        <textarea class="form-input" id="trip-desc" name="trip-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="trip-destination">Trip destination:</label>
-        <input class="form-input" type="text" id="trip-destination" name="trip-destination">
-      </div>
-      <div class="form-group">
-        <label for="trip-date">Select trip starting date:</label>
-        <input class="form-input" type="date" id="trip-date" name="trip-date">
-      </div>
-      <div class="form-group">
-        <label for="trip-length">Select the duration of the trip.</label>
-        <input class="form-input" type="number" id="trip-length" name="trip-length">
-      </div>
-      <div class="form-group">
-        <label for="trip-budget">Planned Budget ($):</label>
-        <input class="form-input" type="number" id="trip-budget" name="trip-budget">
-      </div>
-      
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
+        <div class='form-group'>
+          <button type='submit' class='btn btn-primary buttons'>Create</button>
+        </div>
+      </form>
 
-  {{#if trips.length}}
-  <div class="col-md-6 trip-list">
-    <h3>Current trips:</h3>
+      {{#if trips.length}}
+        <div class='col-md-6 trip-list'>
+          <h3>Current trips:</h3>
 
-    {{#each trips as |trip|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/trip/{{trip.id}}">{{trip.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{trip.id}}">DELETE</button>
-      </div>
+          {{#each trips as |trip|}}
+            <div class='row mb-2'>
+              <div class='col-md-8'>
+                <h4><a href='/trip/{{trip.id}}'>{{trip.name}}</a></h4>
+              </div>
+              <div class='col-md-4'>
+                <button
+                  class='btn btn-sm btn-danger buttons'
+                  data-id='{{trip.id}}'
+                >DELETE</button>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
     </div>
-    {{/each}}
   </div>
-  {{/if}}
 </div>
 
 <script src="./js/addtrip.js"></script>
+
