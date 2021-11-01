@@ -102,11 +102,14 @@ const updateDeleteExpenseHandler = async (event) => {
     event.preventDefault();
     const trip_id = document.querySelector('#new-exp').getAttribute('data-tripid');
     const id = event.target.getAttribute('data-expid');
-    if (event.target.className=="update"){
+    console.log(event.target.className);
+    if (event.target.className.includes("update")){
         let category = document.querySelector(`#expense-category-${id}`).value;
         let budget = document.querySelector(`#expense-budget-${id}`).value;
         let spent = document.querySelector(`#expense-spent-${id}`).value;
         let response ;
+        console.log(category);
+        console.log(spent);
         if (spent){
             response = await fetch(`/api/expenses/${id}`, {
                 method: 'PUT',
