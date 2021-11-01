@@ -1,13 +1,21 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <div class='card-columns mytrips'>
 <form class="form">
-  <div class="form-group">
-    <h2>{{description}}</h2>
-    <p>{{destination.city}}, {{destination.country}}</p>
-    <p>{{format_date start_date}} for {{duration}} days.</p>
+  <div class="form-group tripcard mx-auto" style='max-width: 318px;'">
+    <h3 class="h1Tag">{{description}}</h3>
+    <p class="tripP">{{destination.city}}, {{destination.country}}</p>
+    <p class="tripP">{{format_date start_date}} for {{duration}} days.</p>
   <hr>
-  <h3>Expenses</h3>
+  <h3 class="h1Tag">Expenses</h3>
   <ul id="expense-list">
   {{#each expenses as |expense|}}
-  <li>{{expense.category}} Budget: {{expense.budget}} Spent: {{expense.spent}}</li>
+  <li class="exlist">{{expense.category}} Budget: {{expense.budget}} Spent: {{expense.spent}}</li>
   {{/each}}
   </ul>
 </form>
+ </div>
+    </div>
+  </div>
+</div>

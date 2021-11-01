@@ -89,7 +89,12 @@ p {
   transform: translateX(50%);
   margin-top: 25px;
 }
-
+.exlist {
+  color: #fff;
+}
+.tripP {
+  text-align: center;
+}
 .budget-list {
   text-align: center;
   margin: 10px;
@@ -98,3 +103,4 @@ p {
 .budget-list button {
   margin: 2px 2px;
 }
+
