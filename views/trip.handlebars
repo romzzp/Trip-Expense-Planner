@@ -1,6 +1,7 @@
 <div class='container login-container py-5'>
   <div class='flex-row justify-center loginHeader loginPage'>
     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <h1 class="h1Tag">Modify Trip</h1>
       <form class='form edit-trip-form'>
         <div class='form-group'>
           <label class='formLabel' for='trip-description'>Description</label>
@@ -61,14 +62,12 @@
           >Delete</button>
         </div>
       </form>
-      <h3>Expenses</h3>
+      <h3 class="h1Tag">Expenses</h3>
       <section class='expense-group' id='expense-list'>
         <ul id='expense-list'>
           {{#each expenses as |expense|}}
-            <div class='mx-auto'>
-              <div class='form-group'>
                 <li
-                  id='list-expense-{{expense.id}}'
+                  class='budget-list' id='list-expense-{{expense.id}}'
                   data-expenseid='{{expense.id}}'
                 ><label
                     class='formLabel'
@@ -107,24 +106,22 @@
                     class='delete btn btn-primary buttons'
                     id='delete-expense'
                     data-expid={{expense.id}}
-                  >Delete</button></li>
-              </div>
-            </div>
+                  >Delete</button></li> 
           {{/each}}
         </ul>
       </section>
 
       <form class='form expense-form'>
         <div class='form-group'>
-          <label class='formLabel' for='expense-category'>Category</label>
+          <label class='formLabel' for='expense-category'>Category  </label>
           <input class='form-control' type='text' id='expense-category' />
         </div>
         <div class='form-group'>
-          <label class='formLabel' for='expense-budget'>Budget</label>
+          <label class='formLabel' for='expense-budget'>Budget  </label>
           <input class='form-control' type='text' id='expense-budget' />
         </div>
         <div class='form-group'>
-          <label class='formLabel' for='expense-spent'>Spent</label>
+          <label class='formLabel' for='expense-spent'>Spent  </label>
           <input class='form-control' type='text' id='expense-spent' />
         </div>
         <div class='form-group'>
