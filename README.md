@@ -67,4 +67,3 @@ Destinations details page
 Add trips page
 <img src=./public/images/addtripspage.png>
 
-
