@@ -2,7 +2,6 @@
 
 This applicatin lets the user create an expense tracker for the user's trips. This application has the ability to view all the trips taken by any user and use it for the reference to have the user's trip expense planned. User can create an account and add, delete or modify the planned or completed trips.
 
-
 ## Created by
 
 [Altug Cakmakci](https://github.com/altugcakmakci)
@@ -66,4 +65,3 @@ Destinations details page
 
 Add trips page
 <img src=./public/images/addtripspage.png>
-

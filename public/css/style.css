@@ -95,3 +95,12 @@ p {
 .tripP {
   text-align: center;
 }
+.budget-list {
+  text-align: center;
+  margin: 10px;
+}
+
+.budget-list button {
+  margin: 2px 2px;
+}
+

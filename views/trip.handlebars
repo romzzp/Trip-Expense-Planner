@@ -1,6 +1,7 @@
 <div class='container login-container py-5'>
   <div class='flex-row justify-center loginHeader loginPage'>
     <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
+      <h1 class="h1Tag">Modify Trip</h1>
       <form class='form edit-trip-form'>
         <div class='form-group'>
           <label class='formLabel' for='trip-description'>Description</label>
@@ -66,7 +67,7 @@
         <ul id='expense-list'>
           {{#each expenses as |expense|}}
                 <li
-                  id='list-expense-{{expense.id}}'
+                  class='budget-list' id='list-expense-{{expense.id}}'
                   data-expenseid='{{expense.id}}'
                 ><label
                     class='formLabel'
