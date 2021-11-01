@@ -97,10 +97,11 @@ p {
 }
 .budget-list {
   text-align: center;
-  margin: 10px;
+  margin: 1px;
+  list-style: none;
 }
 
 .budget-list button {
-  margin: 2px 2px;
+  margin: 0px 0px;
 }
 
