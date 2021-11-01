@@ -124,3 +124,6 @@ This project is graded based on the following criteria:
 
 ---
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
+<img width="1440" alt="Screen Shot 2021-11-01 at 10 48 13" src="https://user-images.githubusercontent.com/85548877/139690910-706605f4-0990-448c-91c2-ccc920f7d247.png">
