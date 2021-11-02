@@ -130,7 +130,7 @@ const updateDeleteExpenseHandler = async (event) => {
         } else {
             alert('Failed to delete expense.');
         }
-    } else if (event.target.className=="delete"){
+    } else if (event.target.className.includes("delete")){
         const response = await fetch(`/api/expenses/${id}`, {
             method: 'DELETE',
             body: JSON.stringify({ id }),
