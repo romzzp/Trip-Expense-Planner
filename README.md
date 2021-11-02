@@ -44,7 +44,7 @@ https://github.com/romzzp/Trip-Expense-Planner
 
 ## Link to Heroku:
 
-https://rta-trip-planner.herokuapp.com/login
+https://rta-trip-planner.herokuapp.com/
 
 ## Screenshots of the application
 
