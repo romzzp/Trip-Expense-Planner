@@ -54,10 +54,9 @@ router.get('/mytrips', withAuth, async (req, res) => {
     // Serialize data so the template can read it
     const trips = tripData.map((trip) => trip.get({ plain: true }));
 
-    let totalBudget = 0;
-    let totalSpent = 0;
-    let completed = true;
     trips.forEach(trip => {
+      let totalBudget = 0;
+      let totalSpent = 0;
       trip.expenses.forEach(expense => {
         totalBudget +=  expense.budget;
         if (expense.spent===null){
@@ -220,10 +219,11 @@ router.get('/destinations/:dest_id', withAuth, async (req, res) => {
     // Serialize data so the template can read it
     const trips = tripData.map((trip) => trip.get({ plain: true }));
 
-    let totalBudget = 0;
-    let totalSpent = 0;
+
     let location;
     trips.forEach(trip => {
+      let totalBudget = 0;
+      let totalSpent = 0;
       location = `${trip.destination.city} @ ${trip.destination.country}`;
       trip.expenses.forEach(expense => {
         totalBudget +=  expense.budget;
